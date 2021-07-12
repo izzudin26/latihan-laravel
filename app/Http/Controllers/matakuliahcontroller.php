@@ -60,11 +60,11 @@ class matakuliahcontroller extends Controller
     public function get($id){
         $matkul = Matakuliah::select("id", "nama_matkul", "nama_dosen", "sks")
         ->where("id", $id)
-        ->join('dosens', 'matakuliahs.pengajar', '=', 'dosens.kode_dosen')->get();;
+        ->join('dosens', 'matakuliahs.pengajar', '=', 'dosens.kode_dosen')->first();
         $response = [
             "status" => 200,
             "message" => "Success get matakuliah.".$id,
-            "data" => $matkul[0]
+            "data" => $matkul
         ];
         return response($response);
     }
