@@ -14,8 +14,8 @@
 
 - Seeding example data
   ```
-  $ php artisan seed --class dosenseed
-  $ php artisan seed --class matakuliahseed
+  $ php artisan db:seed --class dosenseed
+  $ php artisan db:seed --class matakuliahseed
   ```
 
 - Running application
