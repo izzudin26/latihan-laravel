@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\matakuliahcontroller;
+use App\Http\Controllers;
+use App\Http\Controllers\dosencontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,10 @@ Route::get('/api/matakuliah/{id}', [matakuliahcontroller::class, 'get']);
 Route::post('/api/matakuliah', [matakuliahcontroller::class, 'create']);
 Route::put('/api/matakuliah/{id}', [matakuliahcontroller::class, 'update']);
 Route::delete('/api/matakuliah/{id}', [matakuliahcontroller::class, 'remove']);
+
+Route::post('/api/dosen/login', [dosencontroller::class, 'login']);
+Route::post('/api/dosen/registration', [dosencontroller::class, 'register']);
+
 
 
 
