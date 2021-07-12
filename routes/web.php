@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\matakuliahcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/api/matakuliah', [matakuliahcontroller::class, 'collections']);
+Route::get('/api/matakuliah/{id}', [matakuliahcontroller::class, 'get']);
+Route::post('/api/matakuliah', [matakuliahcontroller::class, 'create']);
+Route::put('/api/matakuliah/{id}', [matakuliahcontroller::class, 'update']);
+Route::delete('/api/matakuliah/{id}', [matakuliahcontroller::class, 'remove']);
+
+
+
+
