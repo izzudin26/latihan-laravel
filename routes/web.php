@@ -19,6 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/registration', function () {
+    return view('registration');
+});
+
 
 Route::get('/api/matakuliah', [matakuliahcontroller::class, 'collections']);
 Route::get('/api/matakuliah/{id}', [matakuliahcontroller::class, 'get']);
