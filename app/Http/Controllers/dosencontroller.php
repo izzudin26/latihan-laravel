@@ -13,8 +13,8 @@ class dosencontroller extends Controller
     public function login(Request $request){
         $dosen = dosen::where("username", $request->username)->first();
         if($dosen && Hash::check($request->password, $dosen->password)){
-           $request->session()->put("dosen", $dosen->username);
-           $sesi = $request->session()->get("dosen");
+           $request->session()->put("sessiondosen", $dosen->kode_dosen);
+           $sesi = $request->session()->get("sessiondosen");
            $res = [
                "status" => 200,
                "message" => "success login",
