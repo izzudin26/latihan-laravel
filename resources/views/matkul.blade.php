@@ -69,6 +69,10 @@
             create(e)
         })
 
+        function editData(index){
+            window.location = `/matakuliah/edit/${collection[index].id}`
+        }
+
         async function create(e){
             e.preventDefault();
             let sessionDosen = localStorage.getItem("dosen")
