@@ -46,7 +46,7 @@
 
 ###### Registration
 - METHOD `POST`
-- endpoint `/api/registration`
+- endpoint `/api/dosen/registration`
 - Request
     ```json
     {
