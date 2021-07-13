@@ -1,6 +1,6 @@
 ### Before Using
 - `PHP VERSION 8`
-- `CREATE DATABASE with name KULIAH`
+- `CREATE DATABASE with name "kuliah"`
 - `install dependency
   ```
   $ composer install
