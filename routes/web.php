@@ -16,7 +16,7 @@ use App\Http\Controllers\dosencontroller;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect("matakuliah");
 });
 
 Route::get('/login', function () {
@@ -25,7 +25,15 @@ Route::get('/login', function () {
 Route::get('/registration', function () {
     return view('registration');
 });
+Route::get('/matakuliah', function () {
+    return view("matkul");
+})->middleware("sessionauth");
+Route::get('/matakuliah/edit/{id}', function () {
+    return view('matkuledit');
+})->middleware("sessionauth");
 
+Route::get('/session', [dosencontroller::class, 'checkSession']);
+Route::get('/logout', [dosencontroller::class, 'logout']);
 
 Route::get('/api/matakuliah', [matakuliahcontroller::class, 'collections']);
 Route::get('/api/matakuliah/{id}', [matakuliahcontroller::class, 'get']);

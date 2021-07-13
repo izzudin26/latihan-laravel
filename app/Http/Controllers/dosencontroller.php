@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 class dosencontroller extends Controller
 {
 
+    public function checkSession(Request $request){
+        return $request->session()->get("sessiondosen");
+    }
+
     public function logout(Request $request){
         $request->session()->flush();
         return "Session Removed";
