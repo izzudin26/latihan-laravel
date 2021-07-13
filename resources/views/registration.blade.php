@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/axios.min.js"></script>
 </head>
 <body>
-    <main class="login-form">
+    <main class="login-form mt-4">
         <div class="container">
             <div class="row justify-content-center align-self-center">
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">Registration</div>
                         <div class="card-body">
-                            <form action="" method="">
+                            <form method="POST" id="registration">
                                 <div class="form-group row">
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">username</label>
                                     <div class="col-md-6">
@@ -71,5 +72,40 @@
         </div>
     
     </main>
+    <script src="/js/axios.min.js"></script>
+    <script>
+        let username = document.querySelector('#username')
+        let nama = document.querySelector("#namadosen")
+        let alamat = document.querySelector("#alamat")
+        let kotalahir = document.querySelector("#kotalahir")
+        let password = document.querySelector("#password")
+        let tanggallahir = document.querySelector("#tanggallahir")
+
+        let registrationForm = document.querySelector("#registration")
+
+        registrationForm.addEventListener("submit", function(event){
+            registration(event)
+        })
+
+        async function registration(e){
+            e.preventDefault()
+            let data = {
+                username: username.value.trim(),
+                password: password.value.trim(),
+                nama_dosen: nama.value.trim(),
+                alamat: alamat.value.trim(),
+                tempat_lahir: kotalahir.value.trim(),
+                tanggal_lahir: tanggallahir.value.trim(),
+            }
+            try {
+            let res = await axios.post('/api/dosen/registration', data)
+                if(res.status == 200){
+                    window.location = "/login"
+                }
+            } catch (error) {
+                alert(error.message)                
+            }
+        }
+    </script>
 </body>
 </html>l
