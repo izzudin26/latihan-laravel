@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class dosencontroller extends Controller
 {
+
+    public function logout(Request $request){
+        $request->session()->flush();
+        return "Session Removed";
+    }
+
     public function login(Request $request){
         $dosen = dosen::where("username", $request->username)->first();
         if($dosen && Hash::check($request->password, $dosen->password)){
