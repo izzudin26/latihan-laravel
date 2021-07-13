@@ -78,6 +78,21 @@
         "kode_dosen": "integer"
     }
     ```
+- Response
+  ```json
+  {
+    "status": 200,
+    "message": "Success create matkul",
+    "data": {
+        "nama_matkul": "String",
+        "sks": "integer",
+        "pengajar": "integer",
+        "updated_at": "timestamp",
+        "created_at": "timestamp",
+        "id": 9
+    }
+}
+  ```
 
 ###### Collection
 - METHOD `GET`
